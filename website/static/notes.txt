@@ -1,0 +1,1 @@
+This folder should contains assets that don't change such as Javascript or Image Files!
