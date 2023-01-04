@@ -1,0 +1,7 @@
+Websites use HTTP (Hyper Text Transfer Protocol)
+Comes with a couple of methods such as GET,POST,PUT,DELETE,UPDATE,etc.
+
+Sever needs to know what the request is at the endpoint
+
+GET == Retrieving WebPage
+POST == Indicates that there is something to update or change something
