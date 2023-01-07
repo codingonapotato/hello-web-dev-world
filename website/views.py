@@ -14,13 +14,13 @@ def home():
     if request.method == "POST":
         note = request.form.get("note")
         
-        if len(note) < 1:
+        if len(note) < 2: 
             flash("The minimum note length is 2 characters", category="error")
         else:
             new_note = Note(data=note, user_id=current_user.id)
             db.session.add(new_note)
             db.session.commit()
-            flash("Your note has been added successfully!", category="sucess")
+            flash("Your note has been added successfully!", category="success")
     return render_template("home.html", user=current_user)
 
 @views.route("/delete-note", methods=["POST"])
@@ -32,5 +32,6 @@ def delete_note():
         if note.user_id == current_user.id:
             db.session.delete(note)
             db.session.commit()
+            flash("Note deleted successfully!", category="success")
     return jsonify({})
             
