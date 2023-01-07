@@ -1,5 +1,6 @@
-const DARK_MODE_TOGGLE = document.querySelector("#dark-mode-toggle")
-const LIGHT_MODE_TOGGLE = document.querySelector("#light-mode-toggle")
+const DARK_MODE_TOGGLE = document.querySelector("#dark-mode-toggle");
+const LIGHT_MODE_TOGGLE = document.querySelector("#light-mode-toggle");
+const CAT_BUTTON = document.querySelector("#generate-cat");
 
 // EFFECTS: sends a POST request to the route "/deleteNote", then the response is to redirect home
 function deleteNote(noteId) {
@@ -12,20 +13,18 @@ function deleteNote(noteId) {
 
 // EFFECTs: todo
 function toggleLightMode() {
-    console.log("clicked");
     document.documentElement.setAttribute("data-bs-theme", "light");
     localStorage.removeItem("darkMode");
 }
 
 // EFFECTs: todo
 function toggleDarkMode() {
-    console.log("clicked");
     document.documentElement.setAttribute("data-bs-theme", "dark");
     localStorage.setItem("darkMode", "enabled");
 }
 
 function checkDarkMode() {
-    if (localStorage.getItem("darkMode") !== "enabled"){ // if key:value pair DNE already
+    if (localStorage.getItem("darkMode") !== "enabled"){ // if key:value pair DNE 
         toggleDarkMode();
     }
 }
@@ -43,12 +42,20 @@ LIGHT_MODE_TOGGLE.addEventListener("click", () => {
 })
 
 // EFFECTs: todo
-window.addEventListener("load", console.log(localStorage.getItem("darkMode")));
 window.addEventListener("load", () => {
     if (localStorage.getItem("darkMode") === "enabled") {
         document.documentElement.setAttribute("data-bs-theme", "dark");
     }
 });
+
+// EFFECTs:
+async function retrieveNewCat() {
+    console.log("I have been called!");
+    await fetch("https://cataas.com/cat", {cache: 'reload', mode: 'no-cors'})
+    document.getElementById("cat-img").src="https://cataas.com/cat";
+}
+
+
 
 
 

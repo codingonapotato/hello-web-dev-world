@@ -23,6 +23,7 @@ def home():
             flash("Your note has been added successfully!", category="success")
     return render_template("home.html", user=current_user)
 
+## Effects: deletes note if the user.id of the note is the same as the current user's
 @views.route("/delete-note", methods=["POST"])
 def delete_note():
     data = json.loads(request.data)
@@ -34,4 +35,7 @@ def delete_note():
             db.session.commit()
             flash("Note deleted successfully!", category="success")
     return jsonify({})
-            
+
+@views.route("/generate_cat", methods=["GET", "POST"])
+def generateCat():
+    return render_template("generate_cat.html", user=current_user)

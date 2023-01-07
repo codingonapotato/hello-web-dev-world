@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html="en">
+{%extends "base.html"%}
+<title>{% block title %} Cat Generator {% endblock %}</title>
+{% block content%}
+<h1 align="center">Cat Image Generator</h1>
+<div class="container">
+    <div class="text-center">
+        <p class="py-1"></p>
+        <img id="cat-img" src="static/Cutee.jpg" class = "rounded"  width="auto" height="500">
+        <p class="py-1"></p>
+        <button id="generate-cat" class="btn btn-primary" onClick="retrieveNewCat()">Generate Cat!</button>
+    </div>    
+</div>
+{%endblock%}   
+</html>
