@@ -37,14 +37,15 @@
                   {%if user.is_authenticated %}
                   <a class="nav-item nav-link", id="home" href="/">Home</a>
                   <a class="nav-item nav-link", id="logOut" href="/logout">Logout</a>
+                  <a class="nav-item nav-link", id="generateCat", href="/generate_cat">Get Cat!</a>
                   {% else %}
                   <a class="nav-item nav-link", id="login" href="/login">Login</a> 
                   <a class="nav-item nav-link", id="signUp" href="/sign_up">Sign Up</a>   
                   {% endif %}   
-              </div>
+              </div>           
           </div>
           <button id="light-mode-toggle" type="button" class="btn btn-light float-right" onClick="toggleLightMode()" data-mdb-ripple-color="dark">Light</button>
-          <button id="dark-mode-toggle" type="button" class="btn btn-dark float-right" onClick="toggleDarkMode()">Dark</button>                 
+          <button id="dark-mode-toggle" type="button" class="btn btn-dark float-right" onClick="toggleDarkMode()">Dark</button>      
       </nav>
       
       {% with messages = get_flashed_messages(with_categories=true)%}
