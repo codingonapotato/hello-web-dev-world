@@ -53,9 +53,13 @@ window.addEventListener("load", () => {
 // EFFECTs: retrieves a new cat image every time the button with id="cat-img" 
 // is clicked and updates the src field with the link to the image.
 async function retrieveNewCat() {
+    url = "https://api.thecatapi.com/v1/images/search?api_key=live_Cp9zX13sJqRX19xvnglX46RByhFGfnW4irHM1eRkoXjjbSfYXPEFPelInOKk7L4I"
+    let parsedResponse;
+    fetch(url).then(response=>response.json()).then(data => {parsedResponse = data[0]["url"]})
+    console.log(parsedResponse)
     console.log("I have been called!");
-    await fetch("https://cataas.com/cat", {cache: 'reload', mode: 'no-cors'})
-    document.getElementById("cat-img").src="https://cataas.com/cat";
+    await fetch(url, {cache: 'reload', mode: 'no-cors'})
+    document.getElementById("cat-img").src=parsedResponse;
 }
 
 
